@@ -12,7 +12,7 @@ export default function ClientSearchPage() {
   const results = useMemo(() => {
     return MOCK_LABOURERS.filter((l) => {
       if (onlyAvailable && !l.isAvailable) return false;
-      if (activeSkill && !(l.skills as string[]).includes(activeSkill)) return false;
+      if (activeSkill && !l.skills.includes(activeSkill)) return false;
       return true;
     }).sort((a, b) => a.distanceKm - b.distanceKm);
   }, [activeSkill, onlyAvailable]);
@@ -177,7 +177,7 @@ export default function ClientSearchPage() {
 
             {/* Skills */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-              {(l.skills as string[]).map((sid) => {
+              {l.skills.map((sid) => {
                 const skill = SKILLS.find((s) => s.id === sid);
                 return (
                   <span

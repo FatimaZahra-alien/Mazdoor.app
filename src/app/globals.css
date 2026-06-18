@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap");
+
+@theme {
+  --color-primary: #f97316;
+  --color-primary-dark: #c2410c;
+  --color-primary-light: rgba(249, 115, 22, 0.18);
+  --color-danger: #f87171;
+  --color-danger-light: rgba(248, 113, 113, 0.15);
+  --color-accent: #f97316;
+  --color-accent-light: rgba(249, 115, 22, 0.15);
+  --color-bg: transparent;
+  --color-surface: #1a1a1a;
+  --color-border: #2e2e2e;
+  --color-text: #ffffff;
+  --color-muted: #a0a0a0;
+
+  --font-urdu: "Noto Nastaliq Urdu", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background: #000;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Urdu text utility */
+.ur {
+  font-family: var(--font-urdu);
+  direction: rtl;
+  line-height: 2;
+}
+
+/* Card — fully solid, no blur, no transparency */
+.card {
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.125rem;
+}
+
+/* Accent left-border card */
+.card-accent {
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.125rem;
+}
+
+/* Glass — only for bottom nav, keeps the one decorative use */
+.glass {
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid #2e2e2e;
+}
+
+/* Big tap targets */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: opacity 0.15s, transform 0.1s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid #fff;
+  color: #fff;
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Chip / pill */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(249, 115, 22, 0.2);
+  color: #fb923c;
+}
+
+.chip-danger {
+  background: rgba(248, 113, 113, 0.2);
+  color: #f87171;
+}
+
+/* Badge */
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  background: #111111;
+  border: 1.5px solid #333333;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input::placeholder {
+  color: #666666;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a0a0a0;
+  margin-bottom: 0.5rem;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: #2e2e2e;
+  margin: 0.75rem 0;
+}
